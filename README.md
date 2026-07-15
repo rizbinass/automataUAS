@@ -1,3 +1,5 @@
+![Animasi UI](ui-animation.svg)
+
 # Simulasi Pintu Otomatis — PDA + Mesin Turing
 
 > Projek UAS Teori Bahasa dan Automata.
