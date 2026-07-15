@@ -139,12 +139,6 @@ Kalo salah → DITOLAK ❌
 | q4 | B | B | Diam | qaccept |
 | any | lainnya | - | - | qreject |
 
-### Tampilan UI (Animasi)
-
-![Animasi UI](ui-animation.svg)
-
-Animasi di atas nunjukin simulasi dari awal sampe selesai secara otomatis — state berjalan q0→qf, pintu geser, log muncul bertahap, dan head di tape jalan.
-
 ---
 
 ## Struktur Folder
