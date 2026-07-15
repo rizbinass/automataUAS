@@ -137,7 +137,7 @@ Kalo salah → DITOLAK ❌
 | q4 | B | B | Diam | qaccept |
 | any | lainnya | - | - | qreject |
 
-### Fitur UI
+### Fitur UI (Sekarang)
 
 - **Kamera langsung** — liat muka orang yg kedetek
 - **State cards** — state apa yg aktif, biar keliatan prosesnya
@@ -145,6 +145,40 @@ Kalo salah → DITOLAK ❌
 - **Log sistem** — catatan semua kejadian
 - **Reset** — balik lagi ke awal
 - **Auto loop** — abis satu siklus, siap lagi buat yg baru
+
+### Ide Pengembangan: Animasi Pintu Geser Kayak di Mall
+
+Bisa ditambahin animasi pintu geser pake `tk.Canvas`:
+
+```
+┌───────────────┐
+│   ┌───┐ ┌───┐   │  ← pintu lagi nutup (ketebalan penuh)
+│   │   │ │   │   │
+│   └───┘ └───┘   │
+└───────────────┘
+
+┌───────────────┐
+│ ┌─┐       ┌─┐ │  ← pintu lagi mbuka (geser ke pinggir)
+│ │ │       │ │ │
+│ └─┘       └─┘ │
+└───────────────┘
+
+┌───────────────┐
+│               │  ← pintu kebuka penuh (ilang ke pinggir)
+│               │
+│               │
+└───────────────┘
+```
+
+**Cara kerja:** 2 persegi panjang di kiri-kanan `Canvas`. Pas pintu buka, kedua kotak geser ke pinggir (lebarnya mengecil). Pas nutup, kotak balik ke tengah. Tinggal pake `tkinter` `move()` atau ubah `coords()` tiap step.
+
+**Kode tambahan yang diperlukan:**
+- 1 `Canvas` widget (gantiin label status teks)
+- 2 rectangle (daun pintu kiri & kanan)
+- Fungsi `animasi_buka()` dan `animasi_tutup()` — dipanggil pas transisi state
+- ~30-40 baris di `gui.py`
+
+**Estimasi effort:** kecil. Dampak ke nilai: gede soalnya visual.
 
 ---
 
